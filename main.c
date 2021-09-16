@@ -1,26 +1,32 @@
-/******************************************************************************
-
-                            Online C Compiler.
-                Code, Compile, Run and Debug C program online.
-Write your code in this editor and press "Run" button to compile and execute it.
-
-*******************************************************************************/
-
 #include <stdio.h>
+#include <assert.h>
 #include <math.h>
-main()
-{
-    float a, b, c;
-    scanf("%f", &a);
-    scanf("%f", &b);
-    scanf("%f", &c);
-    if (a == 0) 
-      printf("уравнение не является квадратным");
-    else if ((b * b - 4 * a * c) < 0) 
-        printf("уравнение не имеет корней");
-      else if ((b * b - 4 * a * c) == 0)
-          printf("%f",-b / (2 * a));
-        else printf("%f %f", (-b + sqrt(b * b - 4 * a * c)) / (2 * a), (-b - sqrt(b * b - 4 * a * c)) / (2 * a));
-    return 0;
+#include <stddef.h>
+#include "equation.h"
+#include "tests.h"
+#include "helpfunction.h"
+
+
+int main() {
+
+   // void TestSum();
+
+   printf("Solve quadratic equation\n"
+       "2021\n\n");
+
+   int finish_or_not = 1;
+
+   while ( finish_or_not != 0) {
+
+      printf("Enter a, b, c: ");
+
+      double a = 0, b = 0, c = 0, x1 = 0, x2 = 0;
+      input(a, b, c);
+
+      quadratic_solve(a, b, c, &x1, &x2);
+
+      printf("Enter 0 if you want to finish\n");
+      scanf("%d", &finish_or_not);
+   }
+   return 0;
 }
-      
