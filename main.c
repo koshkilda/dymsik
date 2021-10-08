@@ -21,7 +21,7 @@ int main() {
       printf("Enter a, b, c: ");
 
       double a = 0, b = 0, c = 0, x1 = 0, x2 = 0;
-      input(a, b, c);
+      input(&a, &b, &c);
 
       quadratic_solve(a, b, c, &x1, &x2);
 
