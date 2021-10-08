@@ -8,7 +8,7 @@
 
 
 void linear_equation(double k, double b) {
-    if (is_a_greater_than_b(fabs(k), CONST) == 1) {
+    if (is_equal(fabs(k), CONST) == 1) {
         printf("x = %lf",-b / k);
     }
     else {
@@ -24,7 +24,7 @@ int unlinear_equation(double a, double b, double c, double *x1, double *x2) {
       if (d < 0) {
          return 0;
       }
-      else if (is_a_greater_than_b(CONST, fabs(d))) {
+      else if (is_equal(CONST, fabs(d))) {
             *x1 = -b / (2 * a);
             return 1;
       }
