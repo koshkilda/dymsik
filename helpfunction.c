@@ -28,12 +28,12 @@ int is_a_greater_than_b(double a, double b) {
     else return 0;
 }
 
-void input(double a, double b, double c) {
+void input(double* a, double* b, double* c) {
 
     int nEntered_symbols = scanf("%lf %lf %lf", &a, &b, &c);
 
     if (isinf(a) != 0) {
-        printf("error"); /*бесконечность*/
+        printf("error"); 
     }
     if (isinf(b) != 0) {
         printf("error");
