@@ -1,5 +1,3 @@
 #pragma once
 
-#include "tests.c"
-
-void TestSum();
+int test();
