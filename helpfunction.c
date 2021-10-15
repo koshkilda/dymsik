@@ -69,6 +69,7 @@ void output(int nRoots, double x1, double x2) {
     switch (nRoots) {
     case INF_ROOTS: 
         printf("try again\n\n");
+    break;
     case NO_ROOTS:
         printf("no roots\n");
         break;
