@@ -7,6 +7,14 @@
 #include "helpfunction.h"
 #define CONST 0.001
 
+enum TYPES_OF_SOLUTIOUNS
+{
+    INF_ROOTS = -1,
+    NO_ROOTS = 0,
+    ONE_ROOT = 1,
+    TWO_ROOTS = 2
+};
+
 int is_it_right_or_wrong(int nEntered_symbols) {
     if (nEntered_symbols < 3) {
         printf("error");
@@ -54,5 +62,24 @@ int is_equal(double a, double b) {
     }
     else {
         return 0;
+    }
+}
+
+void output(int nRoots, double x1, double x2) {
+    switch (nRoots) {
+    case INF_ROOTS: 
+        printf("try again\n\n");
+    case NO_ROOTS:
+        printf("no roots\n");
+        break;
+    case ONE_ROOT:
+        printf("x = %lf\n", x1);
+        break;
+    case TWO_ROOTS:
+        printf("x1 = %.2lf x2 = %.2lf\n", x1, x2);
+        break;
+    default:
+        printf("number of Roots = %d \n", nRoots);
+        break;
     }
 }
