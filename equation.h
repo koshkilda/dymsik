@@ -1,3 +1,3 @@
 #pragma once
 
-void quadratic_solve(double a, double b, double c, double x1, double x2);
+int square_solver(double a, double b, double c, double x1, double x2);
