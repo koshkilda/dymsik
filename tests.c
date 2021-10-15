@@ -1,27 +1,50 @@
-#include <stdio.h>
+#define _CRT_SECURE_NO_WARNINGS
+#include <assert.h>
 #include <math.h>
+#include <stddef.h>
+#include <stdio.h>
 #include "equation.h"
-#include "tests.h"
 #include "helpfunction.h"
+#include "tests.h"
 #define CONST 0.001
 
-double expected_sum_Roots(double a, double b) {
-   return a + b;
-}
+enum TYPES_OF_SOLUTIOUNS
+{
+	INF_ROOTS = -1,
+	NO_ROOTS = 0,
+	ONE_ROOT = 1,
+	TWO_ROOTS = 2
+};
 
-double real_sum_Roots(double a, double b, double c, double x1, double x2) {
-    quadratic_solve(a, b, c, x1, x2);
-    return x1 + x2;
-}
+int test() {
+	int flag = 1;
 
-double expected[9] = {expected_sum_Roots(0, 0), expected_sum_Roots(0, 0), expected_sum_Roots(2, 0), expected_sum_Roots(-1, 0), expected_sum_Roots(0, 0), expected_sum_Roots(-1, -4), expected_sum_Roots(-0.38, -2.62), /*expected_sum_Roots(0, 0), expected_sum_Roots(0, 0)};*/
+	int nRoots;
 
-double real[9] = {real_sum_Roots(0, 0, 0), real_sum_Roots(0, 0, 3), real_sum_Roots(0, -3, 6), real_sum_Roots(1, 2, 1), real_sum_Roots(5, 1, 4), real_sum_Roots(1, 5, 4), real_sum_Roots(1, 3, 1), /* real_sum_Roots(1, 1000000, 1), real_sum_Roots(hello)}; */
+	nRoots = square_solver(1, -4, 4, 0, 0);
+	if (nRoots != ONE_ROOT) {
+		flag = 0;
+	}
 
-void TestSum() {
-   for (int i = 0; i < 9, i++) {
-      if (is_equal(expected[i], real[i]) == 0) {
-         printf("error in test %d", i);
-      }
-   }
+	nRoots = square_solver(1, -5, 4, 0, 0);
+	if (nRoots != TWO_ROOTS) {
+		flag = 0;
+	}
+
+	nRoots = square_solver(5, -1, 4, 0, 0);
+	if (nRoots != NO_ROOTS) {
+		flag = 0;
+	}
+
+	nRoots = square_solver(0, 2, 4, 0, 0);
+	if (nRoots != ONE_ROOT) {
+		flag = 0;
+	}	
+
+	nRoots = square_solver(0, 0, 4, 0, 0);
+	if (nRoots != INF_ROOTS) {
+		flag = 0;
+	}
+
+	return flag;
 }
