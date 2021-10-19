@@ -25,7 +25,9 @@ int main() {
         double a = 0, b = 0, c = 0, x1 = 0, x2 = 0;
         input(&a, &b, &c);
 
-        square_solver(a, b, c, x1, x2);
+        int nRoots;
+        nRoots = square_solver(a, b, c, x1, x2);
+        output(nRoots, x1, x2);
 
         printf("Enter 0 if you want to finish\n");
         scanf("%d", &finish_or_not);
