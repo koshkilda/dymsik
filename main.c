@@ -26,7 +26,7 @@ int main() {
         input(&a, &b, &c);
 
         int nRoots;
-        nRoots = square_solver(a, b, c, x1, x2);
+        nRoots = square_solver(a, b, c, &x1, &x2);
         output(nRoots, x1, x2);
 
         printf("Enter 0 if you want to finish\n");
