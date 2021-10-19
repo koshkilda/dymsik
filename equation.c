@@ -49,8 +49,7 @@ int square_solver(double a, double b, double c, double x1, double x2) {
     else {
         nRoots = unlinear_equation(a, b, c, &x1, &x2);
     }
-
-    output(nRoots, x1, x2);
+    
     return nRoots;
 
 }
